@@ -323,7 +323,7 @@
           startY,
           offset,
           cwidth,
-          dx,
+          dx = null,
           startT,
           scrolling = false;
               
@@ -366,7 +366,7 @@
         }
         
         function onTouchEnd(e) {
-          if (slider.animatingTo === slider.currentSlide && !scrolling && !(dx === null)) {
+          if (slider.animatingTo === slider.currentSlide && !scrolling && dx !== null) {
             var updateDx = (reverse) ? -dx : dx,
                 target = (updateDx > 0) ? slider.getTarget('next') : slider.getTarget('prev');
             
